@@ -21,7 +21,7 @@
 </script>
 
 <style scoped lang='less'>
-  @import '~@/assets/style/variable.less';
+  @import '~style/variable.less';
   .my-header{
     height: @headerHeight;
     background: @bgColor;
