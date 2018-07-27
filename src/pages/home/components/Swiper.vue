@@ -1,8 +1,8 @@
 <template>
   <div class="wrapper">
     <swiper :options="swiperOption">
-      <swiper-slide>
-        <img src="/static/pics/banner/8e4a1c3f470d3702.jpg_640x170_c1e8baeb.jpg">
+      <swiper-slide v-for="item of swiperList" :key="item.id">
+        <img :src="item.src">
       </swiper-slide>
       <div class="swiper-pagination"  slot="pagination"></div>
     </swiper>
@@ -17,7 +17,14 @@
             swiperOption:{
               pagination: '.swiper-pagination',
               loop:true
-            }
+            },
+            swiperList:[
+              {id:'001',src:'/static/pics/banner/8e4a1c3f470d3702.jpg_640x170_c1e8baeb.jpg'},
+              {id:'002',src:'/static/pics/banner/44fce1467be17702.jpg_640x170_ae6ad5e0.jpg'},
+              {id:'003',src:'/static/pics/banner/858481b3e2d65802.png_640x170_90ebc386.png'},
+              {id:'004',src:'/static/pics/banner/c72a1ccd4d7b2202.jpg_640x170_a4d1cf68.jpg'},
+              {id:'005',src:'/static/pics/banner/e5a5cec881702f02.jpg_640x170_ad336e63.jpg'},
+            ]
           }
         }
     }

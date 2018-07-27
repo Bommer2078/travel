@@ -23,10 +23,10 @@
           return {
             recommedList:[
               {id:'001',src:'static/pics/Recommend/d1ebc7261517f002.jpg_240x220_c4ec8668.jpg',tiltle:'大连圣亚海洋世界',desc:'浪漫大连首站，浪漫的海洋主题公园'},
-              {id:'001',src:'static/pics/Recommend/d1ebc7261517f002.jpg_240x220_c4ec8668.jpg',tiltle:'大连圣亚海洋世界',desc:'浪漫大连首站，浪漫的海洋主题公园'},
-              {id:'001',src:'static/pics/Recommend/d1ebc7261517f002.jpg_240x220_c4ec8668.jpg',tiltle:'大连圣亚海洋世界',desc:'浪漫大连首站，浪漫的海洋主题公园'},
-              {id:'001',src:'static/pics/Recommend/d1ebc7261517f002.jpg_240x220_c4ec8668.jpg',tiltle:'大连圣亚海洋世界',desc:'浪漫大连首站，浪漫的海洋主题公园'},
-              {id:'001',src:'static/pics/Recommend/d1ebc7261517f002.jpg_240x220_c4ec8668.jpg',tiltle:'大连圣亚海洋世界',desc:'浪漫大连首站，浪漫的海洋主题公园'}
+              {id:'002',src:'static/pics/Recommend/d1ebc7261517f002.jpg_240x220_c4ec8668.jpg',tiltle:'大连圣亚海洋世界',desc:'浪漫大连首站，浪漫的海洋主题公园'},
+              {id:'003',src:'static/pics/Recommend/d1ebc7261517f002.jpg_240x220_c4ec8668.jpg',tiltle:'大连圣亚海洋世界',desc:'浪漫大连首站，浪漫的海洋主题公园'},
+              {id:'004',src:'static/pics/Recommend/d1ebc7261517f002.jpg_240x220_c4ec8668.jpg',tiltle:'大连圣亚海洋世界',desc:'浪漫大连首站，浪漫的海洋主题公园'},
+              {id:'005',src:'static/pics/Recommend/d1ebc7261517f002.jpg_240x220_c4ec8668.jpg',tiltle:'大连圣亚海洋世界',desc:'浪漫大连首站，浪漫的海洋主题公园'}
             ]
           }
         }
