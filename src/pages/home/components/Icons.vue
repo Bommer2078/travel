@@ -1,5 +1,5 @@
 <template>
-    <swiper :options="swiperOption">
+    <swiper :options="swiperOption" class="icon-swiper">
       <swiper-slide v-for="(page,index) of pages" :key="index">
         <div class="home-icons">
           <div class="home-icon" v-for="item of page" :key="item.id">
@@ -50,26 +50,31 @@
 
 <style scoped lang="less">
   @import '~style/ellipsis.less';
-  .home-icons{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    font-size: .12rem;
-    .home-icon{
-      width: 25%;
-      height: 25vw;
+  @import '~style/variable.less';
+  .icon-swiper{
+    margin-bottom:.02rem;
+    .home-icons{
       display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      > img{
-        width: 60%;
-        margin-bottom: .15rem;
-      }
-      > p {
-        width: 100%;
-        text-align: center;
-        .ellipsis
+      flex-direction: row;
+      flex-wrap: wrap;
+      font-size: .12rem;
+      color:@darkTextColor;
+      .home-icon{
+        width: 25%;
+        height: 25vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        > img{
+          width: 60%;
+          margin-bottom: .15rem;
+        }
+        > p {
+          width: 100%;
+          text-align: center;
+          .ellipsis
+        }
       }
     }
   }
