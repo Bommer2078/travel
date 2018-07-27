@@ -4,7 +4,7 @@
     <h3>热销推荐</h3>
   </div>
   <ul class="items">
-    <li class="item" v-for="item of recommedList" :key="item.id">
+    <li class="item" v-for="item of dataList" :key="item.id">
       <img class="item-img" :src="item.src"/>
       <div class="item-detail">
         <h4 class="item-tiltle">{{item.tiltle}}</h4>
@@ -19,16 +19,8 @@
 <script>
     export default {
         name: "Recommed",
-        data(){
-          return {
-            recommedList:[
-              {id:'001',src:'static/pics/Recommend/d1ebc7261517f002.jpg_240x220_c4ec8668.jpg',tiltle:'大连圣亚海洋世界',desc:'浪漫大连首站，浪漫的海洋主题公园'},
-              {id:'002',src:'static/pics/Recommend/d1ebc7261517f002.jpg_240x220_c4ec8668.jpg',tiltle:'大连圣亚海洋世界',desc:'浪漫大连首站，浪漫的海洋主题公园'},
-              {id:'003',src:'static/pics/Recommend/d1ebc7261517f002.jpg_240x220_c4ec8668.jpg',tiltle:'大连圣亚海洋世界',desc:'浪漫大连首站，浪漫的海洋主题公园'},
-              {id:'004',src:'static/pics/Recommend/d1ebc7261517f002.jpg_240x220_c4ec8668.jpg',tiltle:'大连圣亚海洋世界',desc:'浪漫大连首站，浪漫的海洋主题公园'},
-              {id:'005',src:'static/pics/Recommend/d1ebc7261517f002.jpg_240x220_c4ec8668.jpg',tiltle:'大连圣亚海洋世界',desc:'浪漫大连首站，浪漫的海洋主题公园'}
-            ]
-          }
+        props:{
+          dataList:Array
         }
     }
 </script>
@@ -47,7 +39,6 @@
       background: #fff;
       height: 1.9rem;
       display: flex;
-      margin-bottom:.12rem;
       .item-img{
         width: 1.7rem;
         height:1.7rem;

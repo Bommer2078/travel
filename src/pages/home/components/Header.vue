@@ -8,7 +8,7 @@
       请填写城市、景点或路线
     </div>
     <div class="home-header-right">
-      城市
+      {{city}}
       <span class="iconfont">&#xe64a;</span>
     </div>
   </div>
@@ -16,7 +16,10 @@
 
 <script>
   export default {
-    name: "Header"
+    name: "Header",
+    props:{
+      city:String
+    }
   }
 </script>
 

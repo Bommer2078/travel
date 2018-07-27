@@ -14,28 +14,20 @@
 <script>
     export default {
         name: "Icons",
+        props:{
+          dataList:Array
+        },
         data (){
           return {
             swiperOption:{
               autoplay:false
-            },
-            icons:[
-              {id: "0001",src:'/static/pics/icons/ace00878a52d9702.png',desc:'旅游景点旅游景点旅游景点旅游景点旅游景点'},
-              {id: "0002",src:'/static/pics/icons/ace00878a52d9702.png',desc:'旅游景点'},
-              {id: "0003",src:'/static/pics/icons/ace00878a52d9702.png',desc:'旅游景点'},
-              {id: "0004",src:'/static/pics/icons/ace00878a52d9702.png',desc:'旅游景点'},
-              {id: "0005",src:'/static/pics/icons/ace00878a52d9702.png',desc:'旅游景点'},
-              {id: "0006",src:'/static/pics/icons/ace00878a52d9702.png',desc:'旅游景点'},
-              {id: "0007",src:'/static/pics/icons/ace00878a52d9702.png',desc:'旅游景点'},
-              {id: "0008",src:'/static/pics/icons/ace00878a52d9702.png',desc:'旅游景点'},
-              {id: "0008",src:'/static/pics/icons/ace00878a52d9702.png',desc:'旅游景点'}
-            ]
+            }
           }
         },
         computed:{
           pages (){
             const pages = [];
-            this.icons.forEach((item,index)=>{
+            this.dataList.forEach((item,index)=>{
               const page = Math.floor(index/8);
               if(!pages[page]){
                 pages[page] = [];
