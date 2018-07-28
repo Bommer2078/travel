@@ -7,10 +7,12 @@
       <span  class="iconfont">&#xe632;</span>
       请填写城市、景点或路线
     </div>
-    <div class="home-header-right">
-      {{city}}
-      <span class="iconfont">&#xe64a;</span>
-    </div>
+    <router-link to="/city" tag="div">
+      <div class="home-header-right">
+        {{city}}
+        <span class="iconfont">&#xe64a;</span>
+      </div>
+    </router-link>
   </div>
 </template>
 
