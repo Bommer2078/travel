@@ -3,13 +3,16 @@
     <div class="tiltle border-topbottom">当前城市</div>
     <div class="items border-bottom">
       <div class="button-warpper">
-        <div type="button" class="list-item">上海</div>
+        <div type="button" class="list-item">{{currCity}}</div>
       </div>
     </div>
 
     <div class="tiltle border-topbottom">热门城市</div>
     <div class="items border-bottom">
-      <div class="button-warpper" v-for="item of hotCities" :key="item.id" :ref="item.name">
+      <div class="button-warpper"
+           v-for="item of hotCities"
+           :key="item.id"
+           @click="changeCurr(item.name)">
         <div type="button" class="list-item">{{item.name}}</div>
       </div>
     </div>
@@ -17,7 +20,11 @@
     <div class="all-city" v-for="(items,key) of cities" :key="key">
       <div class="tiltle border-topbottom">{{key}}</div>
       <ul >
-        <li class="allcity-item border-bottom" v-for="item of items" :key="item.key">{{item.name}}</li>
+        <li
+          class="allcity-item border-bottom"
+          v-for="item of items"
+          :key="item.key"
+          @click="changeCurr(item.name)">{{item.name}}</li>
       </ul>
     </div>
   </div>
@@ -31,11 +38,17 @@
       cities:Object
     },
     methods:{
-      changeCurr(){
-
+      changeCurr(name){
+        console.log(this.$store)
+        this.$store.commit('changeCurrCity',name)
       }
     },
-    mounted(){
+    computed:{
+      currCity (){
+        return this.$store.state.currCity
+      }
+    },
+    mounted (){
       console.log(this.hotCities)
     }
   }
