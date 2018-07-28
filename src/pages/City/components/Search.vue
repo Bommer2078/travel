@@ -13,14 +13,14 @@
 <style scoped lang="less">
   @import "~style/variable.less";
     .wrapper{
-      height: @headerHeight;
+      height:.7rem;
       background: @bgColor;
       display: flex;
       justify-content: center;
       align-items: center;
       .search-input{
-        width: 95%;
-        height:.68rem;
+        width: 98%;
+        height:.58rem;
         border-radius: .1rem;
         text-align: center;
         color: @darkTextColor;
