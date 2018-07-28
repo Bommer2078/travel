@@ -9,7 +9,7 @@
 
     <div class="tiltle border-topbottom">热门城市</div>
     <div class="items border-bottom">
-      <div class="button-warpper" v-for="item of hotCities" :key="item.id">
+      <div class="button-warpper" v-for="item of hotCities" :key="item.id" :ref="item.name">
         <div type="button" class="list-item">{{item.name}}</div>
       </div>
     </div>
@@ -29,6 +29,11 @@
     props:{
       hotCities:Array,
       cities:Object
+    },
+    methods:{
+      changeCurr(){
+
+      }
     },
     mounted(){
       console.log(this.hotCities)
