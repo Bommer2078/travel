@@ -1,6 +1,6 @@
 <template>
   <div>
-    <home-header :city="city"></home-header>
+    <home-header :city="currCity"></home-header>
     <home-swiper :dataList="swiperList"></home-swiper>
     <home-icons :dataList="iconsList"></home-icons>
     <home-recommed :dataList="recommendList"></home-recommed>
@@ -19,7 +19,7 @@
     name: "Home",
     data (){
       return {
-        city:'',
+        lastCity:'',
         swiperList:[],
         iconsList:[],
         recommendList:[],
@@ -33,22 +33,29 @@
       homeRecommed,
       homeWeekend
     },
+    computed:{
+      currCity(){
+        return this.$store.state.currCity
+      }
+    },
     methods:{
       getHomeInfo (){
-        axios.get('/api/index.json')
+        axios.get('/api/index.json?city=' + this.currCity)
           .then(this.getHomeInfoSucc)
       },
       getHomeInfoSucc (res){
         const data = res.data
-        this.city = data.city
         this.swiperList = data.swiperList
         this.iconsList = data.iconsList
         this.recommendList = data.recommendList
         this.weekendList = data.weekendList
       }
     },
-    mounted (){
-      this.getHomeInfo()
+    activated (){
+      if(this.lastCity != this.currCity){
+        this.lastCity = this.currCity
+        this.getHomeInfo()
+      }
     }
   }
 </script>

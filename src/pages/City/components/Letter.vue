@@ -1,17 +1,66 @@
 <template>
   <div class="city-letter">
     <ul>
-      <li v-for="(item,key) of cities" class="letter" :key="key">{{key}}</li>
+      <li
+        v-for="(key) of arr"
+        class="letter"
+        :key="key"
+        :ref="key"
+        @click="handleLetterClick"
+        @touchstart="handleTouchStart"
+        @touchmove="handleTouchMove"
+        @Touchend="handleTouchEnd"
+      >{{key}}</li>
     </ul>
   </div>
 </template>
 
 <script>
     export default {
-        name: "cityLetter",
-        props:{
-          cities:Object
+      name: "cityLetter",
+      data(){
+        return {
+          touched:false,
+          timer:null
         }
+      },
+      props:{
+        cities:Object,
+      },
+      methods:{
+        handleLetterClick(e){
+          this.$store.commit('letterClick',e.target.innerHTML)
+        },
+        handleTouchStart(){
+          this.touched = true
+        },
+        handleTouchMove(e){
+          if(this.touched) {
+            if (this.timer) {
+              clearTimeout(this.timer)
+            }
+            this.timer = setTimeout(() => {
+
+              const theLetter = Math.floor((e.touches[0].clientY - 145) / 18)
+              if (theLetter < this.arr.length && theLetter >= 0) {
+                this.$store.commit('letterMove', this.arr[theLetter])
+              }
+            }, 16)
+          }
+        },
+        handleTouchEnd(){
+          this.touched = false
+        }
+      },
+      computed:{
+        arr(){
+          const arr = []
+          for(let k in this.cities){
+            arr.push(k)
+          }
+          return arr
+        }
+      }
     }
 </script>
 

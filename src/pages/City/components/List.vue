@@ -1,36 +1,42 @@
 <template>
-  <div class="list">
-    <div class="tiltle border-topbottom">当前城市</div>
-    <div class="items border-bottom">
-      <div class="button-warpper">
-        <div type="button" class="list-item">{{currCity}}</div>
+  <div class="list" ref="wrapper">
+    <div>
+      <div class="tiltle border-topbottom" ref="scrolToTop">当前城市</div>
+      <div class="items border-bottom">
+        <div class="button-warpper">
+          <div type="button" class="list-item">{{currCity}}</div>
+        </div>
       </div>
-    </div>
 
-    <div class="tiltle border-topbottom">热门城市</div>
-    <div class="items border-bottom">
-      <div class="button-warpper"
-           v-for="item of hotCities"
-           :key="item.id"
-           @click="changeCurr(item.name)">
-        <div type="button" class="list-item">{{item.name}}</div>
+      <div class="tiltle border-topbottom">热门城市</div>
+      <div class="items border-bottom">
+        <div class="button-warpper"
+             v-for="item of hotCities"
+             :key="item.id"
+             @click="changeCurr(item.name)">
+          <div type="button" class="list-item">{{item.name}}</div>
+        </div>
       </div>
-    </div>
-
-    <div class="all-city" v-for="(items,key) of cities" :key="key">
-      <div class="tiltle border-topbottom">{{key}}</div>
-      <ul >
-        <li
-          class="allcity-item border-bottom"
-          v-for="item of items"
-          :key="item.key"
-          @click="changeCurr(item.name)">{{item.name}}</li>
-      </ul>
+      <div class="all-city"
+           v-for="(items,key) of cities"
+           :key="key"
+           :ref="key"
+      >
+        <div class="tiltle border-topbottom">{{key}}</div>
+        <ul >
+          <li
+            class="allcity-item border-bottom"
+            v-for="item of items"
+            :key="item.key"
+            @click="changeCurr(item.name)">{{item.name}}</li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+  import Bscroll from 'better-scroll'
   export default {
     name: "currList",
     props:{
@@ -39,17 +45,30 @@
     },
     methods:{
       changeCurr(name){
-        console.log(this.$store)
         this.$store.commit('changeCurrCity',name)
+        this.$router.push('/')
       }
     },
     computed:{
       currCity (){
         return this.$store.state.currCity
+      },
+      letter (){
+        return this.$store.state.letter
       }
     },
     mounted (){
-      console.log(this.hotCities)
+      this.scroll = new Bscroll(this.$refs.wrapper)
+    },
+    watch:{
+      letter (){
+        const element = this.$refs[this.letter][0]
+        this.scroll.scrollToElement(element)
+      }
+    },
+    activated (){
+      const element = this.$refs['scrolToTop']
+      this.scroll.scrollToElement(element)
     }
   }
 </script>
@@ -65,9 +84,12 @@
       border-color: #ccc;
     }
   }
-
   .list{
     overflow: hidden;
+    position:absolute;
+    width: 100%;
+    top:1.56rem;
+    bottom:0;
     .tiltle{
       padding:.02rem 0;
       line-height: .46rem;

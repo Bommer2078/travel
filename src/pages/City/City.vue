@@ -1,7 +1,7 @@
 <template>
 <div>
-  <city-header></city-header>
-  <city-search></city-search>
+    <city-header></city-header>
+    <city-search :cities="cities"></city-search>
   <city-list :hotCities="hotCities" :cities="cities"></city-list>
   <city-letter :cities="cities"></city-letter>
 </div>
@@ -29,7 +29,6 @@
         },
         methods:{
           getListData:function(data){
-            console.log(data)
             if(data.ret && data){
               this.addListData(data.data)
             }
@@ -41,7 +40,6 @@
         },
         mounted(){
           axios.get('/api/city.json').then((res)=>{
-            console.log(res)
             const data = res.data
             this.getListData(data)
           })
@@ -49,6 +47,3 @@
     }
 </script>
 
-<style scoped>
-
-</style>

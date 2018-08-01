@@ -16,10 +16,15 @@
 <style scoped lang="less">
   @import "~style/variable.less";
   .city-header{
+    width: 100%;
+    position: fixed;
+    top:0;
+    left:0;
     height: @headerHeight;
     background: @bgColor;
     color:#fff;
     line-height: @headerHeight;
+    z-index: 1;
     .go-back{
       float: left;
       margin-left:.2rem;
