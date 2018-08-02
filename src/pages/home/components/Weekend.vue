@@ -6,7 +6,7 @@
     <ul class="items">
       <li class="item" v-for="item of dataList" :key="item.id">
         <div class="wrapper">
-          <img class="item-img" :src="item.src"/>
+          <img class="item-img" :src="item.imgUrl"/>
         </div>
         <div class="item-detail">
           <h4 class="item-tiltle">{{item.tiltle}}</h4>
@@ -41,7 +41,7 @@
         overflow: hidden;
         height:0;
         width: 100%;
-        padding-bottom: 58.66%;
+        padding-bottom: 38%;
         background: #eee;
         .item-img{
           width: 100%;

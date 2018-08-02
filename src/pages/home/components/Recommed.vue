@@ -4,14 +4,14 @@
     <h3>热销推荐</h3>
   </div>
   <ul class="items">
-    <li class="item" v-for="item of dataList" :key="item.id">
-      <img class="item-img" :src="item.src"/>
+    <router-link tag="li" :to="'/detail/' + item.id" class="item" v-for="item of dataList" :key="item.id">
+      <img class="item-img" :src="item.imgUrl"/>
       <div class="item-detail">
         <h4 class="item-tiltle">{{item.tiltle}}</h4>
         <p class="item-desc">{{item.desc}}</p>
         <button class="item-button">查看详情</button>
       </div>
-    </li>
+    </router-link>
   </ul>
 </div>
 </template>

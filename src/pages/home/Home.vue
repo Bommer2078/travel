@@ -41,14 +41,18 @@
     methods:{
       getHomeInfo (){
         axios.get('/api/index.json?city=' + this.currCity)
-          .then(this.getHomeInfoSucc)
+          .then((res)=>{
+            this.getHomeInfoSucc(res.data)
+          })
       },
       getHomeInfoSucc (res){
-        const data = res.data
-        this.swiperList = data.swiperList
-        this.iconsList = data.iconsList
-        this.recommendList = data.recommendList
-        this.weekendList = data.weekendList
+        if(res.ret&&res.data){
+          const data = res.data
+          this.swiperList = data.swiperList
+          this.iconsList = data.iconList
+          this.recommendList = data.recommendList
+          this.weekendList = data.weekendList
+        }
       }
     },
     activated (){
