@@ -19,7 +19,7 @@
     },
     methods:{
       handleScroll(){
-        let scroll = document.documentElement.scrollTop
+        const scroll = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset
         if(scroll > 60){
             this.showHeader.opacity = scroll>140?1:(scroll-60)/40
           }

@@ -58,7 +58,7 @@
       }
     },
     mounted (){
-      this.scroll = new Bscroll(this.$refs.wrapper)
+      this.scroll = new Bscroll(this.$refs.wrapper,{click:true})
     },
     watch:{
       letter (){

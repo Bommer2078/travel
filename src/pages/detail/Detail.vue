@@ -32,7 +32,11 @@
       },
       methods:{
         handleGetData(){
-          axios.get('/api/detail.json').then((res)=>{
+          axios.get('/api/detail.json',{
+            params:{
+              id:this.$route.params.id
+            }
+          }).then((res)=>{
               let resoult = res.data
               if(resoult.ret&&resoult.data){
                 this.sendData(resoult.data)

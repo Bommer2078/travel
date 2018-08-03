@@ -59,7 +59,7 @@
       }
     },
     mounted (){
-      this.scroll = new Bscroll(this.$refs.homeScroll)
+      this.scroll = new Bscroll(this.$refs.homeScroll,{click:true})
     },
     activated (){
       if(this.lastCity != this.currCity){

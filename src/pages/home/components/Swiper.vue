@@ -20,8 +20,9 @@
             swiperOption:{
               pagination: '.swiper-pagination',
               autoplay: 3000,
+              autoplayDisableOnInteraction:false,
               loop:true
-            }
+            },
           }
         },
         computed:{
