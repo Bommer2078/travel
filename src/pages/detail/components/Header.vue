@@ -3,7 +3,7 @@
     <router-link to="/" tag="div">
       <span class="go-back iconfont">&#xe624;</span>
     </router-link>
-    <span class="title">热门推荐</span>
+    <span class="title">景点详情</span>
   </header>
 </template>
 
@@ -28,8 +28,12 @@
         }
       }
     },
-    mounted (){
+    activated (){
       window.addEventListener('scroll',this.handleScroll)
+    },
+    deactivated(){
+      this.showHeader.opacity = 0
+      window.removeEventListener('scroll',this.handleScroll)
     }
   }
 </script>
@@ -45,7 +49,7 @@
     background: @bgColor;
     color:#fff;
     line-height: @headerHeight;
-    z-index: 1;
+    z-index: 50;
     .go-back{
       float: left;
       margin-left:.2rem;

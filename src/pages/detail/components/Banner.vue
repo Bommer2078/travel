@@ -2,17 +2,21 @@
 <section>
   <div class="banner">
     <span class="go-back iconfont" @click="handleEscClick">&#xe624;</span>
-    <img @click="handleBannerClick" src="http://img1.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_600x330_bf9c4904.jpg" alt="">
+    <img @click="handleBannerClick" :src="bannerImgUrl" alt="">
     <div class="banner-info">
-      <div class="banner-tiltle">大连圣亚海洋世界(AAAA景区)</div>
+      <div class="banner-tiltle">{{sightName}}</div>
       <div class="banner-number">
         <span class="iconfont">&#xe608;</span>
-        <span>2</span>
+        <span>{{picNum}}</span>
       </div>
     </div>
   </div>
   <fade-animation>
-    <banner-gallary @close="handleGallaryClose" v-show="showGallary"></banner-gallary>
+    <banner-gallary
+      @close="handleGallaryClose"
+      v-show="showGallary"
+      :gallaryImgUrl="gallaryImgUrl"
+    ></banner-gallary>
   </fade-animation>
 </section>
 </template>
@@ -22,6 +26,16 @@
   import fadeAnimation from './fadeAnimation'
     export default {
         name: "detailBanner",
+      props:{
+        bannerImgUrl:String,
+        gallaryImgUrl:Array,
+        sightName:String
+      },
+      computed:{
+        picNum(){
+          return this.gallaryImgUrl.length
+        }
+      },
       data(){
         return {
           showGallary:false
