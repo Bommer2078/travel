@@ -2,6 +2,7 @@
   <div>
     <detail-banner></detail-banner>
     <detail-Header></detail-Header>
+    <div class="content"></div>
   </div>
 </template>
 
@@ -18,5 +19,7 @@
 </script>
 
 <style scoped>
-
+  .content{
+    height:50rem;
+  }
 </style>

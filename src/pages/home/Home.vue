@@ -1,10 +1,12 @@
 <template>
-  <div>
-    <home-header :city="currCity"></home-header>
-    <home-swiper :dataList="swiperList"></home-swiper>
-    <home-icons :dataList="iconsList"></home-icons>
-    <home-recommed :dataList="recommendList"></home-recommed>
-    <home-weekend :dataList="weekendList"></home-weekend>
+  <div class="home-content" ref="homeScroll">
+    <div>
+      <home-header :city="currCity"></home-header>
+      <home-swiper :dataList="swiperList"></home-swiper>
+      <home-icons :dataList="iconsList"></home-icons>
+      <home-recommed :dataList="recommendList"></home-recommed>
+      <home-weekend :dataList="weekendList"></home-weekend>
+    </div>
   </div>
 </template>
 
@@ -15,6 +17,7 @@
   import homeRecommed from './components/Recommed'
   import homeWeekend from './components/Weekend'
   import axios from 'axios'
+  import Bscroll from 'better-scroll'
   export default {
     name: "Home",
     data (){
@@ -55,6 +58,9 @@
         }
       }
     },
+    mounted (){
+      this.scroll = new Bscroll(this.$refs.homeScroll)
+    },
     activated (){
       if(this.lastCity != this.currCity){
         this.lastCity = this.currCity
@@ -65,5 +71,12 @@
 </script>
 
 <style scoped>
-
+  .home-content{
+    overflow: hidden;
+    position:absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
 </style>

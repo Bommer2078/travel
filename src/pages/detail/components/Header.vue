@@ -1,5 +1,5 @@
 <template>
-  <header class="city-header">
+  <header class="city-header" :style="showHeader">
     <router-link to="/" tag="div">
       <span class="go-back iconfont">&#xe624;</span>
     </router-link>
@@ -9,7 +9,28 @@
 
 <script>
   export default {
-    name: "detailHeader"
+    name: "detailHeader",
+    data(){
+      return {
+        showHeader:{
+          opacity:0
+        }
+      }
+    },
+    methods:{
+      handleScroll(){
+        let scroll = document.documentElement.scrollTop
+        if(scroll > 60){
+            this.showHeader.opacity = scroll>140?1:(scroll-60)/40
+          }
+          else{
+            this.showHeader.opacity = 0
+        }
+      }
+    },
+    mounted (){
+      window.addEventListener('scroll',this.handleScroll)
+    }
   }
 </script>
 

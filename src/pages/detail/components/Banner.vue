@@ -11,7 +11,9 @@
       </div>
     </div>
   </div>
-  <banner-gallary @close="handleGallaryClose" v-show="showGallary"></banner-gallary>
+  <fade-animation>
+    <banner-gallary @close="handleGallaryClose" v-show="showGallary"></banner-gallary>
+  </fade-animation>
 </section>
 </template>
 

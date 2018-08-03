@@ -52,6 +52,7 @@
 
 <style scoped lang="less">
   .gallary{
+    z-index:2;
     position: absolute;
     top:0;
     bottom: 0;
